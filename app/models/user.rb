@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true, format: { with: EMAIL_FORMAT }, uniqueness: true
+  has_one_attached :avatar
 
   before_save { self.email = email.downcase }
 

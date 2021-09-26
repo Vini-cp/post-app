@@ -29,6 +29,12 @@
         |
         <%= link_to 'Sign up', new_user_path %>
       <% end %>
+      |
+      <%= link_to 'Posts', posts_path %>
+      <% if current_user %>
+        |
+        <%= link_to 'Edit Profile', edit_user_path(current_user) %>
+      <% end %>
     </header>
     <%= yield %>
   </body>

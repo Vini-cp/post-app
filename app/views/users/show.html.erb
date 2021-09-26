@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>User: <%= @user.name %></h1>
+<div>
+  <h1>User: <%= @user.name %>
+
+  <% if @user.avatar.present? %>
+    <%= image_tag @user.avatar, style: "width: 100px; display: inline; border: 2px solid black;" %>
+  <% end %>
+  </h1>
+<div>
 
 <% @user.posts.each do |post| %>
   <h2> <%= link_to post.title, post %></h2>
