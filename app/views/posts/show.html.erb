@@ -2,6 +2,12 @@
 
 <h1><%= @post.title %></h1>
 
+<% if @post.image.present? %>
+<p>
+  <%= image_tag @post.image, style: "width: 300px; display: block" %>
+</p>
+<% end %>
+
 <p><%= @post.body %></p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
