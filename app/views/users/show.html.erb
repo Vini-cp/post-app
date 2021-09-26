@@ -2,7 +2,10 @@
 
 <h1>User: <%= @user.name %></h1>
 
-<p>Email: <%= @user.email %></p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% @user.posts.each do |post| %>
+  <h2> <%= link_to post.title, post %></h2>
+  <% if post.image.present? %>
+    <p><%= image_tag post.image, style: "width: 300px; display: block" %></p>
+  <% end %>
+  <p><%= post.body.truncate(100) %></p>
+<% end %>
